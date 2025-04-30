@@ -36,21 +36,6 @@ Using the **DistilBERT (SQuAD)** model from Hugging Face, SageShell extracts rel
 
 ---
 
-## 📁 Project Structure
-
-```bash
-/app
-  /controllers
-    question_controller.py  # Handles incoming HTTP requests for questions
-  /services
-    question_service.py     # Logic for handling questions and answers
-  /models
-    question.py             # MongoDB model for storing questions and 
-  /database
-    database.py             # MongoDB connection setup
-  main.py                   # FastAPI app entry point
-  agent_logic.py            # Handles AI agent logic and DuckDuckGo search
-```
 
 ## 🛠️ API Routes
 
