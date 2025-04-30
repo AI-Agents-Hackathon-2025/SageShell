@@ -20,6 +20,7 @@ Using the **DistilBERT (SQuAD)** model from Hugging Face, SageShell extracts rel
 - 💬 Fully interactive in the terminal  
 - 🔒 Runs locally without storing or transmitting user data  
 - 🧩 Modular design: easy to extend or customize  
+- 🗃️ API endpoints to interact with stored questions and answers
 
 ---
 
@@ -30,51 +31,76 @@ Using the **DistilBERT (SQuAD)** model from Hugging Face, SageShell extracts rel
 - [`transformers`](https://huggingface.co/transformers/)
 - [`torch`](https://pytorch.org/)
 - Model: `distilbert-base-uncased-distilled-squad` (from Hugging Face)
+- **FastAPI** for building the API
+- **MongoDB** for storing questions and answers
 
 ---
 
 ## 📁 Project Structure
 
---
-
-## ▶️ How to Use
-
-#### 1. **Clone the repository**:
-
 ```bash
-git clone https://github.com/your-username/sageshell.git
-cd sageshell
+/app
+  /controllers
+    question_controller.py  # Handles incoming HTTP requests for questions
+  /services
+    question_service.py     # Logic for handling questions and answers
+  /models
+    question.py             # MongoDB model for storing questions and 
+  /database
+    database.py             # MongoDB connection setup
+  main.py                   # FastAPI app entry point
+  agent_logic.py            # Handles AI agent logic and DuckDuckGo search
 ```
 
-#### 1. **Clone the repository**:
+## 🛠️ API Routes
+
+### 1. POST /ask
+
+This endpoint allows you to ask a question to the AI agent.
+
+Request:
+```bash
+{
+  "question": "What is the theory of relativity?"
+}
+```
+Response:
 
 ```bash
-pip install duckduckgo-search transformers torch
+{
+  "answer": "The theory of relativity, developed by Albert Einstein, describes the laws of physics in relation to objects moving at high speeds and the nature of gravity. It consists of two parts: special relativity and general relativity."
+}
+```
+### 2. GET /questions
 
-#### 1. **Clone the repository**:
+This endpoint allows you to retrieve all stored questions.
 
+Response:
 ```bash
-python agent.py
+[
+  {
+    "question": "What is the theory of relativity?",
+    "answer": "The theory of relativity, developed by Albert Einstein, describes the laws of physics in relation to objects moving at high speeds and the nature of gravity."
+  },
+  ...
+]
 ```
 
-#### 1. **Clone the repository**:
+### 3. GET /questions/{id}
+
+This endpoint allows you to retrieve a specific question by its id.
+
+Response:
 
 ```bash
-You: What is the theory of relativity?
-Agent: [response]
+{
+  "question": "What is the theory of relativity?",
+  "answer": "The theory of relativity, developed by Albert Einstein, describes the laws of physics in relation to objects moving at high speeds and the nature of gravity."
+}
 ```
 
 ## 👥 Authors
 
-- Rafael  
-- Daniel  
-- Mateus  
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License**.  
-Feel free to use, modify, and share!
-
-To exit, just type: exit, quit, or bye.
+- [Rafael Loureiro](https://github.com/rafaelloureiroc)   
+- [Daniel Ugulino](https://github.com/Daniel-Ugulino)  
+- [Mateus Oliveira](https://github.com/Mateusol22  )   
