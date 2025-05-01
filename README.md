@@ -6,10 +6,9 @@
 
 ## 📌 Description
 
-**SageShell** is a lightweight, terminal-based AI agent developed by **Rafael**, **Daniel**, and **Mateus** on **04/11/2025**.  
-It allows users to ask natural language questions and get contextual, AI-generated answers using real-time search results from **DuckDuckGo**.
+SageShell API is a lightweight, terminal-based solution developed by Rafael, Daniel, and Mateus on 04/11/2025. This API allows users to ask natural language questions and receive contextual, AI-generated answers using real-time search results from DuckDuckGo.
 
-Using the **DistilBERT (SQuAD)** model from Hugging Face, SageShell extracts relevant answers from search data and presents concise, accurate responses — all running locally, without cloud dependency.
+The API utilizes the DistilBERT (SQuAD) model from Hugging Face to extract relevant answers from search data and provide concise, accurate responses — all running locally, without relying on cloud services.
 
 ---
 
